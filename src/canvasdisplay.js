@@ -17,20 +17,20 @@ export class CanvasDisplay {
   }
 
   clear() {
-      this.canvas.remove();
+    this.canvas.remove();
   }
 }
 
 const scale = 20;
 
-CanvasDisplay.prototype.syncState = function(state) {
+CanvasDisplay.prototype.syncState = function (state) {
   this.updateViewport(state);
   this.clearDisplay(state.status);
   this.drawBackground(state.level);
   this.drawActors(state.actors);
 };
 
-CanvasDisplay.prototype.updateViewport = function(state) {
+CanvasDisplay.prototype.updateViewport = function (state) {
   let view = this.viewport,
     margin = view.width / 3;
   let player = state.player;
@@ -54,7 +54,7 @@ CanvasDisplay.prototype.updateViewport = function(state) {
   }
 };
 
-CanvasDisplay.prototype.clearDisplay = function(status) {
+CanvasDisplay.prototype.clearDisplay = function (status) {
   if (status === "won") {
     this.cx.fillStyle = "rgb(68, 191, 255)";
   } else if (status === "lost") {
@@ -68,7 +68,7 @@ CanvasDisplay.prototype.clearDisplay = function(status) {
 let otherSprites = document.createElement("img");
 otherSprites.src = "img/sprites.png";
 
-CanvasDisplay.prototype.drawBackground = function(level) {
+CanvasDisplay.prototype.drawBackground = function (level) {
   let { left, top, width, height } = this.viewport;
   let xStart = Math.floor(left);
   let xEnd = Math.ceil(left + width);
@@ -101,7 +101,7 @@ let playerSprites = document.createElement("img");
 playerSprites.src = "img/player.png";
 const playerXOverlap = 4;
 
-CanvasDisplay.prototype.drawPlayer = function(player, x, y, width, height) {
+CanvasDisplay.prototype.drawPlayer = function (player, x, y, width, height) {
   width += playerXOverlap * 2;
   x -= playerXOverlap;
   if (player.speed.x !== 0) {
@@ -140,7 +140,7 @@ function flipHorizontally(context, around) {
   context.translate(-around, 0);
 }
 
-CanvasDisplay.prototype.drawActors = function(actors) {
+CanvasDisplay.prototype.drawActors = function (actors) {
   for (let actor of actors) {
     let width = actor.size.x * scale;
     let height = actor.size.y * scale;

@@ -80,7 +80,7 @@ function runLevel(level) {
  */
 export async function runGame(plans) {
   let life = 0;
-  for (let level = 0; level < plans.length; ) {
+  for (let level = 0; level < plans.length;) {
     if (level === 0 && life === 0) {
       life = 3;
     }
@@ -98,4 +98,3 @@ export async function runGame(plans) {
   }
   console.log("You've won!");
 }
-

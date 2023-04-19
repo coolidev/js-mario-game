@@ -10,7 +10,7 @@ export class DOMDisplay {
   }
 }
 
-DOMDisplay.prototype.syncState = function(state) {
+DOMDisplay.prototype.syncState = function (state) {
   if (this.actorLayer) this.actorLayer.remove();
   this.actorLayer = drawActors(state.actors);
   this.dom.appendChild(this.actorLayer);
@@ -18,7 +18,7 @@ DOMDisplay.prototype.syncState = function(state) {
   this.scrollPlayerIntoView(state);
 };
 
-DOMDisplay.prototype.scrollPlayerIntoView = function(state) {
+DOMDisplay.prototype.scrollPlayerIntoView = function (state) {
   let width = this.dom.clientWidth;
   let height = this.dom.clientHeight;
   let margin = width / 3;

@@ -22,7 +22,7 @@ export class Level {
   }
 }
 
-Level.prototype.touches = function(pos, size, type) {
+Level.prototype.touches = function (pos, size, type) {
   var xStart = Math.floor(pos.x);
   var xEnd = Math.ceil(pos.x + size.x);
   var yStart = Math.floor(pos.y);

@@ -14,7 +14,7 @@ export class State {
   }
 }
 
-State.prototype.update = function(time, keys) {
+State.prototype.update = function (time, keys) {
   let actors = this.actors.map(actor => actor.update(time, this, keys));
   let newState = new State(this.level, actors, this.status);
 

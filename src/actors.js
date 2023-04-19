@@ -20,7 +20,7 @@ const playerXSpeed = 7;
 const gravity = 30;
 const jumpSpeed = 17;
 
-Player.prototype.update = function(time, state, keys) {
+Player.prototype.update = function (time, state, keys) {
   let xSpeed = 0;
   if (keys.ArrowLeft) xSpeed -= playerXSpeed;
   if (keys.ArrowRight) xSpeed += playerXSpeed;
@@ -68,11 +68,11 @@ export class Lava {
 
 Lava.prototype.size = new Vec(1, 1);
 
-Lava.prototype.collide = function(state) {
+Lava.prototype.collide = function (state) {
   return new State(state.level, state.actors, "lost");
 };
 
-Lava.prototype.update = function(time, state) {
+Lava.prototype.update = function (time, state) {
   let newPos = this.pos.plus(this.speed.times(time));
   if (!state.level.touches(newPos, this.size, "wall")) {
     return new Lava(newPos, this.speed, this.reset);
@@ -102,7 +102,7 @@ export class Coin {
 
 Coin.prototype.size = new Vec(0.6, 0.6);
 
-Coin.prototype.collide = function(state) {
+Coin.prototype.collide = function (state) {
   let filtered = state.actors.filter(a => a !== this);
   let status = state.status;
   if (!filtered.some(a => a.type === "coin")) {
@@ -114,7 +114,7 @@ Coin.prototype.collide = function(state) {
 const wobbleSpeed = 8,
   wobbleDist = 0.07;
 
-Coin.prototype.update = function(time) {
+Coin.prototype.update = function (time) {
   let wobble = this.wobble + time * wobbleSpeed;
   let wobblePos = Math.sin(wobble) * wobbleDist;
   return new Coin(
