@@ -25,7 +25,8 @@ function runAnimation(frameFunc) {
  * @param {*} level
  */
 function runLevel(level) {
-  let display = new CanvasDisplay(document.body, level);
+  let content = document.getElementById('app');
+  let display = new CanvasDisplay(content, level);
   let state = State.start(level);
   let ending = 1;
   let running = "yes";
